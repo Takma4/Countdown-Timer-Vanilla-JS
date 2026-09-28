@@ -22,6 +22,13 @@ function updateDeadline() {
   // This gives us the remaining time in milliseconds
   const remaining = endDate - now;
 
+  if (remaining < 0) {
+    deadline.innerHTML = `<h4 class="expired">This giveaway has expired.</h4>`;
+    clearInterval(updateDeadline);
+
+    return;
+  }
+
   // Calculate the total duration in seconds, minutes, hours and days
   const totalSeconds = remaining / 1000;
   const totalMinutes = totalSeconds / 60;
@@ -67,6 +74,9 @@ const daysLabel = document.getElementById("days");
 const hoursLabel = document.getElementById("hours");
 const minutesLabel = document.getElementById("minutes");
 const secondsLabel = document.getElementById("seconds");
+
+// Used for after the giveaway expiration
+const deadline = document.querySelector(".deadline");
 
 // Find the end date, format the string and display on screen
 const endDate = resolveEndDate();
