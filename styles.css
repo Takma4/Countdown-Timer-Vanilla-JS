@@ -187,10 +187,6 @@ Countdown Timer
 .gift-info p {
   color: var(--clr-grey-6);
 }
-.date {
-  color: var(--clr-grey-5);
-  font-size: 0.85rem;
-}
 @media screen and (min-width: 992px) {
   .section-center {
     display: grid;
